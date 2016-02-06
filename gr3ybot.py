@@ -63,6 +63,7 @@ from wiki import wiki
 import datetime
 import feedparser
 import re
+import ssl
 if QR_ENABLED: import qrtools
 from fightbot import *
 from wolfbot import *
@@ -100,6 +101,8 @@ matchbot = botname.lower()
 def connect():
 	global irc
 	irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
+	if use_ssl:
+		irc = ssl.wrap_socket(irc)
 	irc.settimeout(10)
 	print "Connecting to {0}:{1}".format(server,port)
 	irc.connect((server,port))
@@ -461,7 +464,7 @@ def main(joined):
 	                        f = readBuffer.split('\n')
 	                        readBuffer = f.pop()
 			except Exception as e:
-				if LOGLEVEL >= 1 and "[Errno 11]" not in str(e): log("ERROR: {}".format(str(e)))
+				if LOGLEVEL >= 1 and "[Errno 11]" not in str(e) and "The operation did not complete (read)" not in str(e): log("ERROR: {}".format(str(e)))
 				continue
 		except:
 			continue

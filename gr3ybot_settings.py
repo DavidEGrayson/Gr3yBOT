@@ -12,6 +12,7 @@ timeformat = "%m/%d/%y %H:%M:%S"
 ## The following are your irc settings
 server = ''
 port = 6667
+use_ssl = False
 channelpw = ''
 botname = 'Gr3yBot'
 version = "1.91. Version Name: Frankystein Mk. III"
