@@ -1,4 +1,4 @@
-#!usr/bin/env python
+#!/usr/bin/env python2
 # encoding=utf-8
 #--
 # Gr3yBOT by BGM, 05/27/2015
@@ -67,6 +67,7 @@ import ssl
 if QR_ENABLED: import qrtools
 from fightbot import *
 from wolfbot import *
+from log import log
 
 #-- Version, and AI initialization, and variables
 random.seed()
@@ -155,13 +156,6 @@ def ident():
 #--
 
 #-- Functions
-def log(text):
-	localnow = datetime.datetime.now(timezone(LOCALTZ))
-	with open(LOGFILE, 'a+') as g:
-		g.write("{0} --==-- {1}\r\n".format(localnow.strftime(timeformat),text))
-		if ECHO_LOG: print "{0} --==-- {1}".format(localnow.strftime(timeformat),text)
-	g.close()
-
 def admins(nick, host):
 	if LOGLEVEL >= 1: log("Call for an admin check.  Is {} an admin?".format(host))
 	rawbuff = ""

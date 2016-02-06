@@ -11,6 +11,7 @@ import time
 import datetime
 import json
 import sys
+from log import log
 
 if YOUTUBE_LINKS == False:
 	sys.exit()
@@ -18,15 +19,6 @@ if YOUTUBE_LINKS == False:
 if __name__ == "__main__":
 	print "You can't run this on its own!"
 	sys.exit()
-
-#-- Logging...
-timeformat = "%m/%d/%y %H:%M:%S"
-def log(text):
-        localnow = datetime.datetime.now(timezone(LOCALTZ))
-        with open(LOGFILE, 'a+') as f:
-                f.write("{0} --==-- {1}\r\n".format(strftime(timeformat),text))
-        f.close()
-#--
 
 youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,developerKey=YOUTUBE_DEVELOPER_KEY)
 
@@ -38,6 +30,8 @@ def getVideo(term):
 	q=term,
 	part="id,snippet"
 	).execute()
+
+	log("getVideo {0}".format(term))
 
 # Add each result to the appropriate list, and then display the lists of
 # matching videos, channels, and playlists.
