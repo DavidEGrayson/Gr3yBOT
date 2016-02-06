@@ -15,15 +15,6 @@ if __name__ == "__main__":
         print "You can't run this on its own!"
         sys.exit()
 
-#-- Logging...
-timeformat = "%m/%d/%y %H:%M:%S"
-def log(text):
-        localnow = datetime.datetime.now(timezone(LOCALTZ))
-        with open(LOGFILE, 'a+') as f:
-                f.write("{0} --==-- {1}\r\n".format(strftime(timeformat),text))
-        f.close()
-#--
-
 def addTwoPlusTwo(q):
 	answer, ans = '',''
 	lines = []
