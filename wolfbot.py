@@ -11,9 +11,6 @@ import datetime
 import xml.etree.ElementTree as ET
 import sys
 
-if WOLFRAM_ENABLED == False:
-        sys.exit()
-
 if __name__ == "__main__":
         print "You can't run this on its own!"
         sys.exit()
