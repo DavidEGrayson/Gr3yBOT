@@ -74,3 +74,10 @@ https://greynoi.se
 						sudo apt-get install libzbar-dev
 						sudo pip install zbar
 						sudo pip install Image
+
+
+Quick list of dependencies:
+
+    pip install --upgrade google-api-python-client pytz requests beautifulsoup4 tweepy slacker feedparser tldextract nltk parsedatetime wikipedia
+
+Follow instructions from https://github.com/grangier/python-goose
